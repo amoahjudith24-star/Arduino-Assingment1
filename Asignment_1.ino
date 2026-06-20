@@ -1,0 +1,49 @@
+void setup() {
+  // put your setup code here, to run once:
+int ledPin = 13;
+int startValue = 5;
+
+// Function to flash the LED a specified number of times
+void flashLED(int times) {
+  int flash = 0;
+
+  while (flash < times) {
+    digitalWrite(ledPin, HIGH);
+    delay(200);
+    digitalWrite(ledPin, LOW);
+    delay(200);
+
+    flash++;
+  }
+}
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(9600);
+
+  Serial.println("=== Smart Countdown Starting ===");
+
+  int count = startValue;
+
+  while (count > 0) {
+    Serial.print("Counter is: ");
+    Serial.println(count);
+
+    // Blink LED according to current counter value
+    flashLED(count);
+
+    delay(1000);
+    count--;
+  }
+
+  Serial.println("=== Countdown Complete ===");
+}
+
+void loop() {
+}
+
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
